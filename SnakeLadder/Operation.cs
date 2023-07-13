@@ -19,6 +19,36 @@ namespace SnakeLadder
             count++;
             return diePosition;
         }
+        public void Game()
+        {
+            while (this.position < WINNING_POSITION)
+            {
+                int option = random.Next(0, 3);
+                switch (option)
+                {
+                    case NO_PLAY: break;
+                    case LADDER:
+                        int dieRoll = DieRoll();
+                        if (this.position + dieRoll < WINNING_POSITION)
+                        {
+                            this.position += dieRoll;
+                        }
+                        break;
+                    case SNAKE:
+                        dieRoll = DieRoll();
+                        if (this.position - dieRoll < STARTING_POSITION)
+                        {
+                            this.position = 0;
+                        }
+                        else
+                        {
+                            this.position -= dieRoll;
+                        }
+                        break;
+                }
+            }
+            Console.WriteLine("Number oftimes the dice's played" + " " + count);
+        }
     }
 
 }
