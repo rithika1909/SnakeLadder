@@ -1,2 +1,15 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using SnakeLadder;
+using System;
+
+namespace SnakeAndLadder
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Operation operation = new Operation();
+            operation.DieRoll();
+            operation.Game();
+        }
+    }
+}
