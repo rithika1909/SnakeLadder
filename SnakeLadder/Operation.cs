@@ -33,7 +33,7 @@ namespace SnakeLadder
                         break;
                     case SNAKE:
                         int dieRoll = DieRoll();
-                        if (this.position - dieRoll < 0)
+                        if (this.position - dieRoll < STARTING_POSITION)
                         {
                             this.position = 0;
                         }
@@ -44,7 +44,8 @@ namespace SnakeLadder
                         break;
                     }
                 }
-            
+            Console.WriteLine("Number of times the dice's played" + " " + count);
+
         }
     }
 
