@@ -11,6 +11,8 @@ namespace SnakeLadder
         const int NO_PLAY = 0, LADDER = 1, SNAKE = 2, WINNING_POSITION = 100, STARTING_POSITION = 0;
         int position = 0, count = 0;
 
+        bool WON = false;
+
         Random random = new Random();
         public int DieRoll()
         {
@@ -19,7 +21,7 @@ namespace SnakeLadder
             count++;
             return diePosition;
         }
-        public void Game()
+        public int Game()
         {
             while (this.position < WINNING_POSITION)
             {
@@ -44,7 +46,13 @@ namespace SnakeLadder
                         break;
                     }
                 }
+            if (this.position == WINNING_POSITION)
+            {
+                WON = true;
+            }
             Console.WriteLine("Number of times the dice's played" + " " + count);
+            return count;
+
 
         }
     }
