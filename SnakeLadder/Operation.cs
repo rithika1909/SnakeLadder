@@ -32,10 +32,18 @@ namespace SnakeLadder
                         this.position += DieRoll();
                         break;
                     case SNAKE:
-                        this.position -= DieRoll();
+                        int dieRoll = DieRoll();
+                        if (this.position - dieRoll < 0)
+                        {
+                            this.position = 0;
+                        }
+                        else
+                        {
+                            this.position -= DieRoll();
+                        }
                         break;
+                    }
                 }
-            }
             
         }
     }
